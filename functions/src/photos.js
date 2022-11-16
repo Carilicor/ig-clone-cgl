@@ -13,7 +13,7 @@ export async function getAllPhotos(req, res) {
 
 export async function addNewPhoto(req, res) {
     const addNew = req.body;
-    const dbConnect = dbConnect();
+    const db = dbConnect();
     await db.collection('photos').add(addNew)
         .catch(err => res.status(500).send(err))
     getAllPhotos(req, res);
